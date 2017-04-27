@@ -1,0 +1,21 @@
+<%- layout('layout.ejs') %>
+<h2><%- the_title %></h2>
+<% for(var i=0; i < posts.length; i++) { %>
+  <h3>Title: <%- posts[i].title %></h3>
+  <blockquote>
+      <h4>Description: <%- posts[i].description %></h4>
+      <footer>Date: <%- posts[i].createdAt %></footer>
+  </blockquote>
+<% } %>
+
+<form method="post" action='/add'>
+  <div class="form-group">
+    <label>Title</label>
+    <input class="form-control" type="text" placeholder="Title" name="title" required>
+    <label>Description</label>
+    <textarea class="form-control" rows="10" name="description" placeholder="Description" required></textarea>
+    <button type="submit" class="btn btn-success">Add Post</button>
+  </div>
+</form>
+
+<h4 class="error"><%- error%></h4>
